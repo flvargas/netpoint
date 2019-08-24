@@ -1,2 +1,0 @@
-# netpoint
-Created with CodeSandbox
