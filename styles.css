@@ -5,7 +5,7 @@ html {
 }
 
 @supports (font-variation-settings: normal) {
-  html {
+  html, textarea {
     font-family: "Inter var", sans-serif;
   }
 }
@@ -30,91 +30,193 @@ body {
   width: 550px;
 }
 
-.space {
-  margin-bottom: 16px;
-}
-
-.space-md {
-  margin-bottom: 32px;
-}
-
-.label {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.header {
-  background: url(images/header.png) center right no-repeat;
+header {
+  background: url(images/header.svg) center right no-repeat; 
   background-size: cover;
-  height: 187px;
-  padding: 23px 36px;
+  height: 182px;
+  padding: 24px 34px;
   width: 100%;
 }
 
-.header .title {
+h1 {
   color: #fff;
   font-size: 23px;
   font-weight: 300;
+  line-height: 30px;
 }
 
-.header .title span {
+h1 strong {
   font-weight: bold;
   font-size: 24px;
   line-height: 1.46;
 }
 
-.form textarea {
+form {
+  margin:24px 0 0 0;
+}
+
+fieldset {
+  padding: 0 32px;
+  border:none;
+}
+
+fieldset#stickerType {margin-bottom: 16px;}
+
+fieldset#counter {margin-bottom: 20px;}
+
+legend, label[for="obs"] {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+label[for="obs"] {margin-bottom: 8px;}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label {
+   background: url(images/checkbox-checked.svg) no-repeat;
+}
+input[type="checkbox"]:checked + label:hover {
+   background: url(images/checkbox-checked-hover.svg) no-repeat;
+}
+input[type="checkbox"] + label:hover, input[type="checkbox"] + label.error:hover {
+   background: url(images/checkbox-unchecked-hover.svg) no-repeat;
+}
+
+input[type="checkbox"] + label {
+  margin-bottom:5px;
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  display: block;
+  width:100px;
+  cursor: pointer;
+  padding-left: 33px;
+  background: url(images/checkbox-unchecked.svg) no-repeat;
+}
+
+input[type="checkbox"] + label.error {
+  background: url(images/checkbox-error.svg) no-repeat;
+}
+
+button {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border:0;
+  overflow: hidden;
+  text-indent: -9999em;
+  cursor: pointer;
+}
+
+button#decrease {
+  background: url(images/btn-decrease.svg) no-repeat;
+}
+
+button#decrease:hover {
+  background: url(images/btn-decrease-hover.svg) no-repeat;
+}
+button#decrease:disabled {
+  background: url(images/btn-decrease-disabled.svg) no-repeat;
+  cursor: auto;
+}
+
+button#increase {
+  background: url(images/btn-increase.svg) no-repeat;
+}
+
+button#increase:hover {
+  background: url(images/btn-increase-hover.svg) no-repeat;
+}
+
+/* hide sppiner of input type number */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  display: inline-block;
+  background: #DDE3E9;
+  border: 1px solid #2F3676;
+  border-radius: 4px;
+  text-align: center;
+  width: 60px;
+  height: 42px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #071723;
+  position: relative;
+  top:2px;
+  margin: 0 3px;
+}
+input[type='number'].error {
+  background: #F59393;
+  border: 1px solid #F33232;
+}
+
+textarea {
   background: #dde3e9;
   border: 1px solid #2f3676;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #071723;
   height: 140px;
-  padding: 16px;
+  padding: 14px 16px;
   resize: none;
   width: 100%;
   font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 13px;
 }
 
-.fieldset {
-  padding: 0 32px;
-}
-
-.counter svg {
-  fill: #2f3676;
-}
-
-.counter input {
-  background: #dde3e9;
-  border: 1px solid #2f3676;
-  border-radius: 7px;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 8px;
-  width: 60px;
-}
-
-.footer {
+footer {
   padding: 32px;
   background: #dde3e9;
-  display: flex;
-  justify-content: flex-end;
+  overflow: hidden;
 }
 
-.footer button {
+#result {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #00C57C;
+  float: left;
+  margin-top:10px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
   appearance: none;
   background: #2f3676;
-  border: 0;
-  border-radius: 8px;
+  border: 2px solid #2f3676;
+  border-radius: 7px;
   color: #fff;
   padding: 10px;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 8px 32px;
+  padding: 9px 32px 7px 32px;
+  float: right;
 }
 
-.footer button:focus,
-.footer button:hover {
+input[type="submit"]:focus,
+input[type="submit"]:hover {
   border: 2px solid #2f3676;
   background: #191847;
+}
+
+input[type="submit"]:disabled {
+  background: #C5CFD6;
+  border: 2px solid #555555;
+  color: #555555;
+  cursor: auto;
 }
